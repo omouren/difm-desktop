@@ -6,9 +6,9 @@ services:
 
 before_deploy:
   - docker build -t local/nativefier .
-  - docker run -v "$TRAVIS_BUILD_DIR":/src local/nativefier --platform "linux" --icon /src/difm-logo.png --name "DI.FM" "https://www.di.fm" --honest --disable-dev-tools --single-instance --tray --internal-urls ".*" --global-shortcuts globalShortcut.json --inject ./inject.js /src/
-  - docker run -v "$TRAVIS_BUILD_DIR":/src local/nativefier --platform "windows" --icon /src/difm-logo.png --name "DI.FM" "https://www.di.fm" --honest --disable-dev-tools --single-instance --tray --internal-urls ".*" --global-shortcuts globalShortcut.json --inject ./inject.js /src/
-  - docker run -v "$TRAVIS_BUILD_DIR":/src local/nativefier --platform "mac" --icon /src/difm-logo.png --name "DI.FM" "https://www.di.fm" --honest --disable-dev-tools --single-instance --tray --internal-urls ".*" --global-shortcuts globalShortcut.json --inject ./inject.js /src/
+  - docker run -v "$TRAVIS_BUILD_DIR":/src local/nativefier --platform "linux" --icon /src/difm-logo.png --name "DI.FM" "https://www.di.fm" --honest --disable-dev-tools --single-instance --tray --internal-urls ".*" --global-shortcuts /src/globalShortcut.json --inject /src/inject.js /src/
+  - docker run -v "$TRAVIS_BUILD_DIR":/src local/nativefier --platform "windows" --icon /src/difm-logo.png --name "DI.FM" "https://www.di.fm" --honest --disable-dev-tools --single-instance --tray --internal-urls ".*" --global-shortcuts /src/globalShortcut.json --inject /src/inject.js /src/
+  - docker run -v "$TRAVIS_BUILD_DIR":/src local/nativefier --platform "mac" --icon /src/difm-logo.png --name "DI.FM" "https://www.di.fm" --honest --disable-dev-tools --single-instance --tray --internal-urls ".*" --global-shortcuts /src/globalShortcut.json --inject /src/inject.js /src/
   - sudo chown -R travis:travis $TRAVIS_BUILD_DIR
   - for d in */ ; do base=$(basename "$d") ; cd "$base" ; zip -r "$base" * ; mv "${base}.zip" .. ; cd .. ; done;
 
