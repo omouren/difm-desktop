@@ -21,15 +21,15 @@ npm install -g nativefier
 
 ### Mac
 ```
-nativefier --platform "mac" --icon difm-logo.png --name "DI.FM" "https://www.di.fm" --honest --disable-dev-tools --single-instance --tray
+nativefier --platform "mac" --icon difm-logo.png --name "DI.FM" "https://www.di.fm" --honest --disable-dev-tools --single-instance --tray --internal-urls ".*" --global-shortcuts globalShortcut.json --inject ./inject.js
 ```
 
 ### Windows
 ```
-nativefier --platform "windows" --icon difm-logo.png --name "DI.FM" "https://www.di.fm" --honest --disable-dev-tools --single-instance --tray
+nativefier --platform "windows" --icon difm-logo.png --name "DI.FM" "https://www.di.fm" --honest --disable-dev-tools --single-instance --tray --internal-urls ".*" --global-shortcuts globalShortcut.json --inject ./inject.js
 ```
 
 ### Linux
 ```
-nativefier --platform "linux" --icon difm-logo.png --name "DI.FM" "https://www.di.fm" --honest --disable-dev-tools --single-instance --tray
+nativefier --platform "linux" --icon difm-logo.png --name "DI.FM" "https://www.di.fm" --honest --disable-dev-tools --single-instance --tray --internal-urls ".*" --global-shortcuts globalShortcut.json --inject ./inject.js
 ```
